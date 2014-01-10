@@ -60,7 +60,14 @@ public class MovieServiceTest {
 	
 	@Test
 	public void removeAMovieThatDosentExist() {
+		movieService.addMovie(new Movie("ABC"));
+		movieService.addMovie(new Movie("Wall-E"));
+		try {
+		movieService.removeByName("Titanic");
+		fail("Was expecting an exception in removeAMovieThatDosentExist ");
+		} catch(MovieException e) {
+			assertEquals(e.getMessage(), "That movie does not exist in the service");
 		
+		}
 	}
-		
 }
