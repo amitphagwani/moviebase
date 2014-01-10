@@ -38,4 +38,23 @@ public class MovieServiceTest {
 		assertEquals(movieService.getCount(), 0);
 
 	}
+	
+	@Test
+	public void removeAMovieAndGettheTotal() {
+		movieService.addMovie(new Movie("ABC"));
+		movieService.addMovie(new Movie("Wall-E"));
+		movieService.removeByName("Wall-E");
+		assertEquals(movieService.getCount(), 1);		
+	}
+	
+	@Test
+	public void removeAMovieFromAnEmptyService() {
+		
+	}
+	
+	@Test
+	public void removeAMovieThatDosentExist() {
+		
+	}
+	
 }
