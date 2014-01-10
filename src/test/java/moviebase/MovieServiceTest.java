@@ -1,6 +1,8 @@
-package maviebase;
+package moviebase;
 
 import static org.junit.Assert.assertEquals;
+import moviebase.Movie;
+import moviebase.MovieService;
 
 import org.testng.annotations.Test;
 

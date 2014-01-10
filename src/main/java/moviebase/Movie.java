@@ -1,4 +1,4 @@
-package maviebase;
+package moviebase;
 
 public class Movie {
 
