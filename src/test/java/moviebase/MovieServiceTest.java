@@ -3,7 +3,7 @@ package moviebase;
 import static org.junit.Assert.assertEquals;
 import moviebase.Movie;
 import moviebase.MovieService;
-
+import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -40,7 +40,7 @@ public class MovieServiceTest {
 	}
 	
 	@Test
-	public void removeAMovieAndGettheTotal() {
+	public void removeAMovieAndGettheTotal() throws MovieException {
 		movieService.addMovie(new Movie("ABC"));
 		movieService.addMovie(new Movie("Wall-E"));
 		movieService.removeByName("Wall-E");
@@ -48,13 +48,19 @@ public class MovieServiceTest {
 	}
 	
 	@Test
-	public void removeAMovieFromAnEmptyService() {
-		
+	public void removeAMovieFromAnEmptyService()  {
+		try{
+			movieService.removeByName("Wall-E");
+			fail("Was expecting an exception in removeAMovieFromAnEmptyService");
+		}
+		catch (MovieException e){
+			assertEquals(e.getMessage(), "There are no movies in the service");
+		}
 	}
 	
 	@Test
 	public void removeAMovieThatDosentExist() {
 		
 	}
-	
+		
 }
